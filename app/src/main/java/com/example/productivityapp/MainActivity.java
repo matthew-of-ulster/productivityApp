@@ -27,16 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.button1);
         textView = (TextView) findViewById(R.id.text1);
+        counter = 5;
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new CountDownTimer(30000, 1000){
+                new CountDownTimer(5000, 1000){
 
                     @Override
                     public void onTick(long millisUntilFinish) {
                        textView.setText(String.valueOf(counter));
-                       counter++;
+                       counter--;
                     }
 
                     @Override
