@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView textView;
 
+    ProgressBar progress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.button1);
         textView = (TextView) findViewById(R.id.text1);
+        progress = (ProgressBar) findViewById(R.id.progressBar1);
+        progress.setProgress(10);
         counter = 5;
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onTick(long millisUntilFinish) {
                        textView.setText(String.valueOf(counter));
+                       progress.setProgress(counter);
                        counter--;
+
                     }
 
                     @Override
