@@ -42,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFinish() {
                         textView.setText("FINISH!!");
+                        createNotification(view);
                     }
                 }.start();
 
-                createNotification(view);
+
             }
         });
 
