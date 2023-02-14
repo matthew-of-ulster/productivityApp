@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.button1);
         textView = (TextView) findViewById(R.id.text1);
-        progress = (ProgressBar) findViewById(R.id.progressBar1);
+        progress = (ProgressBar) findViewById(R.id.timerProgress1);
         progress.setProgress(10);
         counter = 5;
 

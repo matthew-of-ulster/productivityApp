@@ -7,21 +7,23 @@
     tools:context=".MainActivity">
 
     <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/timerProgress1"
         android:layout_width="1.5in"
         android:layout_height="1.5in"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/timer_progress"
+        android:progress="70"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text ="Test"/>
+        />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="0.8in"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/progressBar1"
+        app:layout_constraintTop_toBottomOf="@id/timerProgress1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
