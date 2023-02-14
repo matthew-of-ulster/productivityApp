@@ -2,6 +2,7 @@ package com.example.productivityapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.FragmentManager;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -33,6 +34,44 @@ public class MainActivity extends AppCompatActivity {
         progress = (ProgressBar) findViewById(R.id.timerProgress1);
         progress.setProgress(100);
         //int counterMax = 5;
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        Button btntimer = findViewById(R.id.timerBtn);
+        btntimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView5, TimerFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
+            }
+        });
+
+        Button btnnext = findViewById(R.id.nextBtn);
+        btnnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView5, NextFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
+            }
+        });
+
+        Button btnfinal = findViewById(R.id.finalBtn);
+        btnfinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView5, FinalFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("name")
+                        .commit();
+            }
+        });
 
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
