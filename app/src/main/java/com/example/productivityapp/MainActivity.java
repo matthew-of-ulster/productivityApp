@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button1);
         textView = (TextView) findViewById(R.id.text1);
         progress = (ProgressBar) findViewById(R.id.timerProgress1);
-        progress.setProgress(10);
+        progress.setProgress(100);
         counter = 5;
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onTick(long millisUntilFinish) {
                        textView.setText(String.valueOf(counter));
-                       progress.setProgress(counter);
+                       progress.setProgress(counter*20);
                        counter--;
 
                     }
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onFinish() {
                         textView.setText("FINISH!!");
                         createNotification(view);
+                        progress.setProgress(0);
                     }
                 }.start();
 
