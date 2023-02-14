@@ -28,21 +28,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.button1);
         textView = (TextView) findViewById(R.id.text1);
         progress = (ProgressBar) findViewById(R.id.timerProgress1);
         progress.setProgress(100);
-        counter = 5;
+        int counterMax = 2;
 
-        button.setOnClickListener(new View.OnClickListener() {
+        progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progress.setProgress(100);
+                counter = counterMax;
                 new CountDownTimer(5000, 1000){
 
                     @Override
                     public void onTick(long millisUntilFinish) {
                        textView.setText(String.valueOf(counter));
-                       progress.setProgress(counter*20);
+                       progress.setProgress(counter*(100/counterMax));
                        counter--;
 
                     }
