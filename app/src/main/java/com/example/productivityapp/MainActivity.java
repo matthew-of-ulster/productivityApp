@@ -12,15 +12,15 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     public int counter;
-    Button button;
     TextView textView;
-
+    EditText timer1Et;
     ProgressBar progress;
 
     @Override
@@ -28,24 +28,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        timer1Et = (EditText) findViewById(R.id.timerEditText);
         textView = (TextView) findViewById(R.id.text1);
         progress = (ProgressBar) findViewById(R.id.timerProgress1);
         progress.setProgress(100);
-        int counterMax = 2;
+        //int counterMax = 5;
 
         progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int counterMax = 5;
+                String input = String.valueOf(timer1Et.getText());
+
+                if(!input.equals("")) {
+                    counterMax = Integer.parseInt(String.valueOf(timer1Et.getText()));
+                }
                 progress.setProgress(100);
                 counter = counterMax;
-                new CountDownTimer(5000, 1000){
+                int finalCounterMax = counterMax;
+                new CountDownTimer(finalCounterMax*1000, 1000){
 
                     @Override
                     public void onTick(long millisUntilFinish) {
                        textView.setText(String.valueOf(counter));
-                       progress.setProgress(counter*(100/counterMax));
+                       progress.setProgress(counter*(100/ finalCounterMax));
                        counter--;
-
                     }
 
                     @Override
@@ -55,27 +62,8 @@ public class MainActivity extends AppCompatActivity {
                         progress.setProgress(0);
                     }
                 }.start();
-
-
             }
         });
-
-
-
-        /*TextView firstText;
-        Button firstButton;
-
-        firstText = (TextView) findViewById(R.id.my_text_view);
-        firstButton = (Button) findViewById(R.id.button);
-
-        firstButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firstText.setText("Hi Matthew");
-            }
-        });*/
-
-
     }
     public void createNotification(View view) {
 

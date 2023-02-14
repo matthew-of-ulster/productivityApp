@@ -7,9 +7,11 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/timerEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter a number"
+        android:inputType="number"
+        android:hint="Enter a number"
         app:layout_constraintBottom_toTopOf="@+id/timerProgress1"
         app:layout_constraintEnd_toEndOf="@+id/timerProgress1"
         app:layout_constraintStart_toStartOf="@+id/timerProgress1" />
